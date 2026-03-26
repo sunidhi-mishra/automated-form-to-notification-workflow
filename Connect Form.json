@@ -1,0 +1,355 @@
+{
+  "name": "Sunidhi Connect Form",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "# Automation 1\n\n### First automation to understand working of nodes and inside settings or configuration",
+        "height": 192,
+        "width": 336
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -416,
+        -192
+      ],
+      "typeVersion": 1,
+      "id": "b8118fc9-5dea-46d0-a44d-ec5719927849",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "formTitle": "Connect with Sunidhi Mishra ",
+        "formDescription": "Thanks for reaching out!\nIf you’d like to connect, ask a question, discuss product management, AI, explore collaboration opportunities, or just start a conversation, feel free to fill out this form.\n\nI’ll get back to you as soon as possible.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Your Name",
+              "placeholder": "Enter your name",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Email Address",
+              "fieldType": "email",
+              "placeholder": "Where should I reply?",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Share a link about you",
+              "placeholder": "Share any link that helps me know a bit about you"
+            },
+            {
+              "fieldLabel": "What would you like to discuss?",
+              "fieldType": "dropdown",
+              "defaultValue": "Just a Question",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Product Management"
+                  },
+                  {
+                    "option": "AI & Automation"
+                  },
+                  {
+                    "option": "Work / Hiring Opportunity"
+                  },
+                  {
+                    "option": "Collaboration Opportunity"
+                  },
+                  {
+                    "option": "Just a Question"
+                  },
+                  {
+                    "option": "Something Else"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "What’s on your mind?",
+              "fieldType": "textarea",
+              "placeholder": "Share your question, idea, or message here.",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Is there any timeline I should know about?",
+              "fieldType": "dropdown",
+              "defaultValue": "Within 24 to 48 hours",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "No rush"
+                  },
+                  {
+                    "option": "Within 24 to 48 hours"
+                  },
+                  {
+                    "option": "Urgent"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "What made you reach out today?",
+              "fieldType": "textarea"
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": false,
+          "buttonLabel": "Ship This 🚀"
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.5,
+      "position": [
+        -304,
+        176
+      ],
+      "id": "c0f933b7-2cee-4ffc-8718-214156d7cd8b",
+      "name": "On form submission",
+      "webhookId": "bb3a2323-3f03-4de3-8bdc-ca59d4c36227",
+      "notesInFlow": true,
+      "notes": "My first form"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1K1s58-3I7jBF0px3Ib8BvyyyLspQc-XFpYfFxHTsIBg",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1K1s58-3I7jBF0px3Ib8BvyyyLspQc-XFpYfFxHTsIBg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1K1s58-3I7jBF0px3Ib8BvyyyLspQc-XFpYfFxHTsIBg/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json['Your Name'] }}",
+            "Email": "={{ $json['Email Address'] }}",
+            "link": "={{ $json['Share a link about you'] }}",
+            "options": "={{ $json['What would you like to discuss?'] }}",
+            "message": "={{ $json['What’s on your mind?'] }}",
+            "timeline": "={{ $json['Is there any timeline I should know about?'] }}",
+            "reason to message": "={{ $json['What made you reach out today?'] }}",
+            "submitted at": "={{ $json.submittedAt }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "link",
+              "displayName": "link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "options",
+              "displayName": "options",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "timeline",
+              "displayName": "timeline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reason to message",
+              "displayName": "reason to message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submitted at",
+              "displayName": "submitted at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -80,
+        176
+      ],
+      "id": "59866ed9-2a90-46d2-b03f-824fabd812ff",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ZL788yH6MHksvj8o",
+          "name": "Google Sheets account"
+        }
+      },
+      "notes": "my first notes"
+    },
+    {
+      "parameters": {
+        "sendTo": "nyctophiliac399@gmail.com",
+        "subject": "Lead updates ",
+        "emailType": "text",
+        "message": "=Hey Sunidhi,\n\nHow are you? \nThere is a new lead on the form.\n\nName: {{ $json.Name }}\nEmail: {{ $json.Email }}\nLink: {{ $json.link }}\nOptions: {{ $json.options }}\nMessage: {{ $json.message }}\nTimeline: {{ $json.timeline }}\nReason to message: {{ $json['reason to message'] }}\nSubmitted at: {{ $json['submitted at'] }}\n\nSource: https://docs.google.com/spreadsheets/d/1K1s58-3I7jBF0px3Ib8BvyyyLspQc-XFpYfFxHTsIBg/edit?gid=0#gid=0\n\nThanks,\nYour awesome n8n workflow! ",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        144,
+        272
+      ],
+      "id": "b28b2596-a08d-4177-a118-f92bdd90012c",
+      "name": "Send a message",
+      "webhookId": "0eb7811f-271a-417a-926d-ffa03bb9290d",
+      "notesInFlow": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "TM8WNRlRBB9NErQN",
+          "name": "Gmail OAuth2 API"
+        }
+      },
+      "notes": "Send message to me"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "Your message has been received 🚀",
+        "message": "<!DOCTYPE html>\n<html>\n<body style=\"font-family: Arial, Helvetica, sans-serif; line-height:1.6; color:#333333;\">\n\n<p>Hi there,</p>\n\n<p>Your message has successfully been <strong>shipped to my inbox</strong>.</p>\n\n<p>\nThanks for reaching out! I’ll review your message and get back to you as soon as possible.\n</p>\n\n<p>\nWhether you wanted to discuss product management, AI, collaboration, or just start a conversation, \nI appreciate you taking the time to connect.\n</p>\n\n<p>\nIn the meantime, feel free to connect with me on \n<a href=\"https://www.linkedin.com/in/sunidhimishra1203/\" target=\"_blank\">LinkedIn</a>.\n</p>\n\n<p>\nYour message is now in the <strong>processing queue</strong>… response coming soon 🤖\n</p>\n\n<br>\n\n<p>\n<strong>Building &amp; shipping 🚀</strong><br>\nSunidhi\n</p>\n\n<p style=\"color:#666666; font-size:14px;\">\nPowered by curiosity, product thinking, and a little bit of AI.\n</p>\n\n</body>\n</html>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        144,
+        80
+      ],
+      "id": "9778aafc-fd83-4862-9241-fc1cf609886e",
+      "name": "Send a message1",
+      "webhookId": "99e46092-f8fa-46c7-9205-aca6709d7b8f",
+      "notesInFlow": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "TM8WNRlRBB9NErQN",
+          "name": "Gmail OAuth2 API"
+        }
+      },
+      "notes": "Send message to recipient"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message": {
+      "main": [
+        []
+      ]
+    },
+    "Send a message1": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "9e480161-37b6-4966-aee4-cb2d5e09cc01",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "acdce875f436709e732520c4a3752efba212d5e1902ac27d554749a75496d7c4"
+  },
+  "id": "ZosNgcZ8RsKV2rWQ",
+  "tags": []
+}
