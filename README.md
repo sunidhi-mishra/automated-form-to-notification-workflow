@@ -68,3 +68,26 @@ The form allows users to:
 - Enables scalability for handling multiple inbound requests  
 
 ---
+
+## 🧩 Product Interface
+
+![Form UI](assets/form-ui.png)
+
+*User-facing form for structured input and request capture*
+
+---
+
+## ⚙️ Workflow Architecture
+
+![Workflow](assets/workflow.png)
+
+*Form submission → Google Sheets → Email notifications workflow*
+
+---
+
+## 🔗 Live Demo
+
+👉 **Try it yourself:**  
+https://sunidhi1.app.n8n.cloud/form/bb3a2323-3f03-4de3-8bdc-ca59d4c36227  
+
+*Submit a response to see how data flows into Google Sheets and triggers email notifications in real time.*
